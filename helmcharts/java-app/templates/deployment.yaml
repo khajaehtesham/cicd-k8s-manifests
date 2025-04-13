@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-nginx-deployment
+  labels:
+    app: app3-nginx
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: app3-nginx
+  template:
+    metadata:
+      labels:
+        app: app3-nginx
+    spec:
+      containers:
+        - name: app3-nginx
+          image: "{{ .Values.image.repository}}.{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
