@@ -1,4 +1,4 @@
-replicaCount:
+replicaCount:  2
 image:
   repository: 
   tag:  
